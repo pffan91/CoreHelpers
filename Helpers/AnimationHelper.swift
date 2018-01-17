@@ -8,9 +8,9 @@
 
 import UIKit
 
-class AnimationHelper: NSObject {
+public class AnimationHelper: NSObject {
     
-    class func changeRootViewController(toViewController: UIViewController) {
+    public class func changeRootViewController(toViewController: UIViewController) {
         if !((UIApplication.shared.keyWindow?.rootViewController) != nil) {
             UIApplication.shared.windows[0].rootViewController = toViewController
             return
@@ -28,7 +28,7 @@ class AnimationHelper: NSObject {
         })
     }
     
-    class func showUI(show: Bool, views: UIView...) {
+    public class func showUI(show: Bool, views: UIView...) {
         if show {
             UIView.animate(withDuration: 0.3, animations: { 
                 for view in views {
@@ -44,7 +44,7 @@ class AnimationHelper: NSObject {
         }
     }
     
-    class func animateTextCahngeFor(label: UILabel, newText: String) {
+    public class func animateTextCahngeFor(label: UILabel, newText: String) {
         UIView.transition(with: label, duration: 0.25, options: .transitionCrossDissolve, animations: {
             label.text = newText
         }, completion: nil)

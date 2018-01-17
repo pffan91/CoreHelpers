@@ -8,21 +8,21 @@
 
 import UIKit
 
-class ErrorHelper: NSObject {
+public class ErrorHelper: NSObject {
     
     // MARK: - Variables
-    static let errorDomain: String = "core.ext.errors"
+    public static let errorDomain: String = "core.helpers.errors"
     
     // MARK: - Public Methods
-    class func generateErrorWith(localizedTextId: String) -> Error {
+    public class func generateErrorWith(localizedTextId: String) -> Error {
         return NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: NSLocalizedString(localizedTextId, comment: "")])
     }
     
-    class func generateErrorWith(text: String) -> Error {
+    public class func generateErrorWith(text: String) -> Error {
         return NSError(domain: errorDomain, code: 0, userInfo: [NSLocalizedDescriptionKey: text])
     }
     
-    class func generateErrorWith(error: ProviderHTTPRequestError) -> Error {
+    public class func generateErrorWith(error: ProviderHTTPRequestError) -> Error {
         var parsedError: Error
         
         if error.errorType.count > 0 {

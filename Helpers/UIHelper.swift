@@ -3,14 +3,14 @@
 //  VS
 //
 //  Created by Vladyslav Semenchenko on 12/14/17.
-//  Copyright © 2017 Motorsport. All rights reserved.
+//  Copyright © 2017 Vladyslav Semenchenko. All rights reserved.
 //
 
 import UIKit
 
-class UIHelper {
+public class UIHelper {
     
-    class func isiPhone5() -> Bool {
+    public class func isiPhone5() -> Bool {
         let screenRect = UIScreen.main.bounds
         
         if screenRect.size.height == 568 || screenRect.size.width == 568 {
@@ -20,20 +20,25 @@ class UIHelper {
         }
     }
     
-    class func addMediumParallax(to: UIView) {
+    public class func addMediumParallax(to: UIView) {
         UIHelper.addParallax(to: to, min: -20, max: 20)
     }
 
-    class func addSmallParallax(to: UIView) {
+    public class func addSmallParallax(to: UIView) {
         UIHelper.addParallax(to: to, min: -10, max: 10)
     }
     
-    class func removeParallax(to: UIView) {
+    public class func removeParallax(to: UIView) {
         for effect in to.motionEffects {
             to.removeMotionEffect(effect)
         }
     }
     
+    public class func setStatusBarStyleTo(_ style: UIStatusBarStyle) {
+        UIApplication.shared.statusBarStyle = style
+    }
+    
+    // MARK: - Private
     private class func addParallax(to: UIView, min: Int, max: Int) {
         let verticalMotionEffect = UIInterpolatingMotionEffect(keyPath: "center.y", type: .tiltAlongVerticalAxis)
         verticalMotionEffect.minimumRelativeValue = min
@@ -46,10 +51,6 @@ class UIHelper {
         let group = UIMotionEffectGroup()
         group.motionEffects = [horizontalMotionEffect, verticalMotionEffect]
         to.addMotionEffect(group)
-    }
-    
-    class func setStatusBarStyleTo(_ style: UIStatusBarStyle) {
-        UIApplication.shared.statusBarStyle = style
     }
     
 }

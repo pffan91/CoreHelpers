@@ -3,24 +3,24 @@
 //  VS
 //
 //  Created by Vladyslav Semenchenko on 11/05/2017.
-//  Copyright © 2017 Motorsport. All rights reserved.
+//  Copyright © 2017 Vladyslav Semenchenko. All rights reserved.
 //
 
 import UIKit
 
-enum ProviderHTTPRequestErrorType {
+public enum ProviderHTTPRequestErrorType {
     case parsing
     case parsingWithMessage(msg: String)
     case custom
 }
 
-enum ProviderHTTPRequestErrorCode: Int {
+public enum ProviderHTTPRequestErrorCode: Int {
     case parsing = 1
 }
 
-class ProviderErrorType: NSObject {
-    let errorType: String
-    let errorMessage: String
+public class ProviderErrorType: NSObject {
+    public let errorType: String
+    public let errorMessage: String
     
     public init(errorType: String, errorMessage: String) {
         self.errorType = errorType
@@ -28,12 +28,12 @@ class ProviderErrorType: NSObject {
     }
 }
 
-class ProviderHTTPRequestError: NSObject {
-    var errorType: [ProviderErrorType] = []
-    var errorMessage: String?
-    var errorCode: Int?
+public class ProviderHTTPRequestError: NSObject {
+    public var errorType: [ProviderErrorType] = []
+    public var errorMessage: String?
+    public var errorCode: Int?
     
-    init(type: ProviderHTTPRequestErrorType) {
+    public init(type: ProviderHTTPRequestErrorType) {
         super.init()
         
         switch type {

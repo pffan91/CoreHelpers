@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct AlertParameters {
+public struct AlertParameters {
     let title: String
     let msg: String
     let textFieldPlaceholder: String
@@ -16,16 +16,16 @@ struct AlertParameters {
     let btnCancelText: String
 }
 
-class AlertHelper: NSObject {
+public class AlertHelper: NSObject {
     
-    class func showAlertWithOkButton(title: String, msg: String, fromViewController: UIViewController, completion: (() -> Void)? = nil) {
+    public class func showAlertWithOkButton(title: String, msg: String, fromViewController: UIViewController, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: msg, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: "OK", style: .default) { _ in completion?() }
         alertController.addAction(OKAction)
         fromViewController.present(alertController, animated: true) { }
     }
     
-    class func showAlertWithTwoButtons(parameters: AlertParameters, fromViewController: UIViewController, completion:  (() -> Void)? = nil, cancellation: (() -> Void)? = nil) {
+    public class func showAlertWithTwoButtons(parameters: AlertParameters, fromViewController: UIViewController, completion:  (() -> Void)? = nil, cancellation: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: parameters.title, message: parameters.msg, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: parameters.btnOkText, style: .default) { _ in completion?() }
         let CancelAction = UIAlertAction(title: parameters.btnCancelText, style: .cancel) { _ in cancellation?() }
@@ -36,7 +36,7 @@ class AlertHelper: NSObject {
         fromViewController.present(alertController, animated: true) { }
     }
     
-    class func showTextFieldAlert(parameters: AlertParameters, fromViewController: UIViewController, completion: @escaping (String) -> Void) {
+    public class func showTextFieldAlert(parameters: AlertParameters, fromViewController: UIViewController, completion: @escaping (String) -> Void) {
         let alertController = UIAlertController(title: parameters.title, message: parameters.msg, preferredStyle: .alert)
         alertController.addAction(UIAlertAction(title: parameters.btnOkText, style: .default, handler: { _ -> Void in
             let textField = alertController.textFields![0] as UITextField
