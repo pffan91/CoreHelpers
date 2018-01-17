@@ -13,7 +13,7 @@ enum AnalyticEvent: String {
     case test
 }
 
-enum GPErrorCodes: String {
+enum AnalyticErrorCodes: String {
     case test
 }
 
@@ -27,7 +27,7 @@ class AnalyticsHelper: NSObject {
         Flurry.logEvent(event.rawValue, withParameters: value)
     }
     
-    class func sendError(error: Error, errorCode: GPErrorCodes, message: String) {
+    class func sendError(error: Error, errorCode: AnalyticErrorCodes, message: String) {
         Flurry.logError(errorCode.rawValue, message: message, error: error)
     }
     

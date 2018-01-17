@@ -11,7 +11,7 @@ import UIKit
 class ErrorHelper: NSObject {
     
     // MARK: - Variables
-    static let errorDomain: String = Constants.appBundleId + ".errors"
+    static let errorDomain: String = "core.ext.errors"
     
     // MARK: - Public Methods
     class func generateErrorWith(localizedTextId: String) -> Error {
